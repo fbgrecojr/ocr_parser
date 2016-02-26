@@ -16,6 +16,7 @@ module.exports = function(garbage){
     var dateMatch = /([0-9]{1,2}|[a-zA-Z]{3})(\/|-|\.|'| )[0-3][0-9](\/|-|\.|'|,|, )(?:\d{2}){1,2}/g;
     var totalMatch = /(\$?)[0-9]{1,5}\.[0-9]{2}/g;
     var totalTitleMatch = /total/g;
+    var venderMath = /Walmart|walmart|McDonald's|Best Buy|BEST BUY|Apple/g
     
     for(var i=0; i<arr.length; ++i){
 
@@ -29,9 +30,9 @@ module.exports = function(garbage){
                 if(toReturn.total == null)
                     toReturn.total = arr[i+1].match(totalMatch)[0];
         
-        if ((arr[i+5] != null) && ((arr[i] + arr[i+1] + arr[i+2] + arr[i+3] + arr[i+4]).toLowerCase() === 'thankyouforshoppingat'))
+        if (venderMath.test(arr[i] + ' ' + arr[i+1]))
             if(toReturn.vendor == null)
-                toReturn.vendor = arr[i+5];
+                toReturn.vendor = (arr[i] + ' ' + arr[i+1]).match(venderMath)[0];
     }
     
     return toReturn;
