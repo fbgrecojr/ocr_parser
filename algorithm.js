@@ -13,7 +13,7 @@ module.exports = function(garbage){
     //create space delimited array
     var arr = garbage.split(' ');
 
-    var dateMatch = /([0-9]{1,2}|[a-zA-Z]{3})(\/|-|\.|')[0-9]{1,2}(\/|-|\.|')[0-9]{2,4}/g;
+    var dateMatch = /([0-9]{1,2}|[a-zA-Z]{3})(\/|-|\.|')[0-9]{1,2}(\/|-|\.|')(?:\d{2}){1,2}/g;
     var totalMatch = /(\$?)[0-9]{1,5}\.[0-9]{2}/g;
     var totalTitleMatch = /total/g
     var venderMatch = /www.*.com/g;
