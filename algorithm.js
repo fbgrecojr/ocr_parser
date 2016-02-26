@@ -25,13 +25,13 @@ module.exports = function(garbage){
             if(toReturn.date == null)
                 toReturn.date = arr[i].match(dateMatch)[0];
         
-        if (totalTitleMatch.test(arr[i].toLowerCase()))
+        if (totalTitleMatch.test(arr[i].toLowerCase())){
             console.log(arr[i]);
             if(arr[i+1] != null && totalMatch.test(arr[i+1]))
                 console.log(arr[i+1]);
                 if(toReturn.total == null)
-                    toReturn.total = arr[i+1];
-                    //toReturn.total = arr[i+1].match(totalMatch)[0];
+                    toReturn.total = arr[i+1].match(totalMatch)[0];   
+        }
         
         if (venderMath.test(arr[i] + ' ' + arr[i+1]))
             if(toReturn.vendor == null)
