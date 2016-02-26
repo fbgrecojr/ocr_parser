@@ -15,6 +15,7 @@ module.exports = function(garbage){
 
     var dateMatch = /([0-9]{1,2}|[a-zA-Z]{3})(\/|-|\.|')[0-9]{1,2}(\/|-|\.|')[0-9]{2,4}/g;
     var totalMatch = /(\$?)[0-9]{1,5}\.[0-9]{2}/g;
+    var totalTitleMatch = /total/g
     var venderMatch = /www.*.com/g;
     
     for(var i=0; i<arr.length; ++i){
@@ -24,10 +25,10 @@ module.exports = function(garbage){
             if(toReturn.date == null)
                 toReturn.date = arr[i].match(dateMatch)[0];
         
-        if (arr[i].toLowerCase() === 'total')
+        if (totalTitleMatch.test(arr[i].toLowerCase()))
             if(arr[i+1] != null && totalMatch.test(arr[i+1]))
                 if(toReturn.total == null)
-                    toReturn.total = arr[i+1];
+                    toReturn.total = arr[i+1].match(totalMatch)[0];
         
         if ((arr[i+5] != null) && ((arr[i] + arr[i+1] + arr[i+2] + arr[i+3] + arr[i+4]).toLowerCase() === 'thankyouforshoppingat'))
             if(toReturn.vendor == null)
