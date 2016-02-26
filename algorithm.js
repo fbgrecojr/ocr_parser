@@ -39,9 +39,5 @@ module.exports = function(garbage){
                 toReturn.vendor = arr[i].match(webMatch)[0].split('.')[1];*/
     }
     
-    //still not vendor
-    if(toReturn.vendor == null && arr.length > 0)
-        toReturn.vendor = arr[0];
-    
     return toReturn;
 }
