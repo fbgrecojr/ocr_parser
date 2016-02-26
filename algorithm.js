@@ -27,10 +27,11 @@ module.exports = function(garbage){
         
         if (totalTitleMatch.test(arr[i].toLowerCase())){
             console.log(arr[i]);
-            if(arr[i+1] != null && totalMatch.test(arr[i+1]))
+            if(arr[i+1] != null && totalMatch.test(arr[i+1])){
                 console.log(arr[i+1]);
                 if(toReturn.total == null)
-                    toReturn.total = arr[i+1].match(totalMatch)[0];   
+                    toReturn.total = arr[i+1].match(totalMatch)[0]; 
+            }  
         }
         
         if (venderMath.test(arr[i] + ' ' + arr[i+1]))
