@@ -14,6 +14,7 @@ module.exports = function(garbage){
     var arr = garbage.split(' ');
 
     var dateMatch = /([0-9]{1,2}|[a-zA-Z]{3})(\/|-|\.|')[0-9]{1,2}(\/|-|\.|')[0-9]{2,4}/g;
+    var totalMatch = /(\$?)[0-9]{1,5}\.[0-9]{2}/g;
     var webMatch = /www.*.com/g;
     
     for(var i=0; i<arr.length; ++i){
@@ -24,7 +25,7 @@ module.exports = function(garbage){
                 toReturn.date = arr[i].match(dateMatch)[0];
         
         if (arr[i].toLowerCase() === 'total')
-            if(arr[i+1] != null)
+            if(arr[i+1] != null && totalMatch.test(arr[i+1]))
                 if(toReturn.total == null)
                     toReturn.total = arr[i+1];
         
