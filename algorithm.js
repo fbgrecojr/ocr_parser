@@ -15,7 +15,7 @@ module.exports = function(garbage){
 
     var dateMatch = /([0-9]{1,2}|[a-zA-Z]{3})(\/|-|\.|')[0-9]{1,2}(\/|-|\.|')[0-9]{2,4}/g;
     var totalMatch = /(\$?)[0-9]{1,5}\.[0-9]{2}/g;
-    var webMatch = /www.*.com/g;
+    var venderMatch = /www.*.com/g;
     
     for(var i=0; i<arr.length; ++i){
 
@@ -29,9 +29,13 @@ module.exports = function(garbage){
                 if(toReturn.total == null)
                     toReturn.total = arr[i+1];
         
-        if (webMatch.test(arr[i]))
+        if ((arr[i+5] != null) && ((arr[i] + arr[i+1] + arr[i+2] + arr[i+3] + arr[i+4]).toLowerCase() === 'thankyouforshoppingat'))
             if(toReturn.vendor == null)
-                toReturn.vendor = arr[i].match(webMatch)[0].split('.')[1];
+                toReturn.vendor = arr[i+5];
+        
+        /*if (venderMatch.test(arr[i]))
+            if(toReturn.vendor == null)
+                toReturn.vendor = arr[i].match(webMatch)[0].split('.')[1];*/
     }
     
     //still not vendor
