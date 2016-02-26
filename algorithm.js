@@ -11,7 +11,9 @@ module.exports = function(garbage){
     };
     
     //create space delimited array
+    garbage.replace("\n", " ");
     var arr = garbage.split(' ');
+    
 
     var dateMatch = /([0-9]{1,2}|[a-zA-Z]{3})(\/|-|\.|'| )[0-3][0-9](\/|-|\.|'|,|, )(?:\d{2}){1,2}/g;
     var totalMatch = /(\$?)[0-9]{1,5}\.[0-9]{2}/g;
