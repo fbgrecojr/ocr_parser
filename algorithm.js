@@ -18,7 +18,7 @@ module.exports = function(garbage){
     var dateMatch = /([0-9]{1,2}|[a-zA-Z]{3})(\/|-|\.|'| )[0-3][0-9](\/|-|\.|'|,|, )(?:\d{2}){1,2}/g;
     var totalMatch = /(\$?)[0-9]{1,5}\.[0-9]{2}/g;
     var totalTitleMatch = /^total$|^Total$|^TOTAL$/g;
-    var venderMath = /Walmart|walmart|McDonald's|Best Buy|BEST BUY|Apple/g;
+    var venderMath = /Walmart|walmart|McDonald's|Best Buy|BEST BUY|Apple|Aeropostale|AEROPOSTALE/g;
     
     for(var i=0; i<arr.length; ++i){
 
